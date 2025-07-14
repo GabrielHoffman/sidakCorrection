@@ -3,10 +3,12 @@ title: "Numerically stable Sidak correction"
 subtitle: 'Compare with other implementations'
 author: "Developed by [Gabriel Hoffman](http://gabrielhoffman.github.io/)"
 date: "Run on `r Sys.time()`"
-output: 
-  html_document:
+output:
+  rmarkdown::html_document:
+    highlight: pygments
     toc: true
-    smart: true
+    toc_depth: 3
+    fig_width: 5
 vignette: >
   %\VignetteIndexEntry{Numerically stable Sidak correction}
   %\VignetteEngine{knitr::rmarkdown}
