@@ -1,0 +1,15 @@
+^vignettes/Makefile$
+vignettes/.*_cache
+vignettes/.*_files
+^src/Makevars$
+^inst/doxygen$
+\.o$
+\.a$
+\.so$
+\.tmp$
+^docs$
+^.git$
+.*html$
+_pkgdown.yml
+Rprof.out
+pkgdown

@@ -1,0 +1,21 @@
+
+url: http://gabrielhoffman.github.io/sidakCorrection
+
+authors:
+  "Gabriel Hoffman":
+    href: http://gabrielhoffman.github.io
+
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  math-rendering: katex
+  
+  params:
+    docsearch:
+      api_key: dedcc260e9d3743bc634e728855cdbaf
+      index_name: sidakCorrection 
+      
+search:
+  exclude: ['news/index.html']
+
+
