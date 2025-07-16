@@ -9,9 +9,12 @@ Description: The Sidak method is used when the minimum p-value across multiple t
 License: GPL (>= 2)
 URL: https://github.com/GabrielHoffman/sidakCorrection
 BugReports: https://github.com/GabrielHoffman/sidakCorrection/issues
-Imports: Rcpp (>= 1.0.14)
+Imports: 
+    Rcpp (>= 1.0.14),
+    ggplot2,
+    scattermore
 LinkingTo: Rcpp
-Suggests: knitr, Rmpfr, ggplot2, tidyverse
+Suggests: knitr, Rmpfr, tidyverse
 RoxygenNote: 7.3.2
 Depends:
     R (>= 4.3.0)
