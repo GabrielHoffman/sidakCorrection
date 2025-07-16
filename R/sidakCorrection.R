@@ -26,11 +26,10 @@ f <- Vectorize( .sidakCorrection, c("p", "n") )
 #' First, we could use the Rmpfr library to perform the calculation at high precision than available with the standard double.  This calculation is simple enough using the code below.  But 1) is >100x slower, 2) it is hard to predict what precision level to test, and 3) requires a high precision library.  This last point isn't an issue in R, but can become a problem in a typical C/C++ program. 
 #' 
 #' Instead, we use a Taylor series approximation which gives precise estimates even for very small p-values.  Taylor series approximations are widely used to evaluate special functions like sin(), log(), etc.  In this case, the 4th order Taylor series is 
-#' \deqn{n * p + (n * (n-1) / 2) * p^2 + (n * (n-1) * (n-2) / 6) * p^3}
+#' \deqn{np + (n(n-1) / 2)p^2 + (n(n-1)(n-2) / 6)p^3}
 #' This performs well for small values of p, but very poorly for large p.  Therefore, the standard formula is used for p > cutoff, and the Taylor series used otherwize.  But default, cutoff = 1e-12.
 #' 
 #' @examples
-#'
 #' p = 1e-5 # p-value
 #' n = 1000 # number of tests
 #'

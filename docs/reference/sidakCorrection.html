@@ -66,14 +66,13 @@
 <p>We consider 2 ways to compute the Sidak correction with increased precision.</p>
 <p>First, we could use the Rmpfr library to perform the calculation at high precision than available with the standard double.  This calculation is simple enough using the code below.  But 1) is &gt;100x slower, 2) it is hard to predict what precision level to test, and 3) requires a high precision library.  This last point isn't an issue in R, but can become a problem in a typical C/C++ program.</p>
 <p>Instead, we use a Taylor series approximation which gives precise estimates even for very small p-values.  Taylor series approximations are widely used to evaluate special functions like sin(), log(), etc.  In this case, the 4th order Taylor series is
-$$n * p + (n * (n-1) / 2) * p^2 + (n * (n-1) * (n-2) / 6) * p^3$$
+$$np + (n(n-1) / 2)p^2 + (n(n-1)(n-2) / 6)p^3$$
 This performs well for small values of p, but very poorly for large p.  Therefore, the standard formula is used for p &gt; cutoff, and the Taylor series used otherwize.  But default, cutoff = 1e-12.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op">=</span> <span class="fl">1e-5</span> <span class="co"># p-value</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">p</span> <span class="op">=</span> <span class="fl">1e-5</span> <span class="co"># p-value</span></span></span>
 <span class="r-in"><span><span class="va">n</span> <span class="op">=</span> <span class="fl">1000</span> <span class="co"># number of tests</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Sidak-corrected p-value</span></span></span>
@@ -98,10 +97,10 @@ This performs well for small values of p, but very poorly for large p.  Therefor
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Apply Sidak-correction for each row</span></span></span>
 <span class="r-in"><span><span class="fu">sidakCorrection</span><span class="op">(</span> <span class="va">res</span><span class="op">$</span><span class="va">p.min</span>, <span class="va">res</span><span class="op">$</span><span class="va">n</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.340088e-01 5.858471e-01 8.470426e-01 4.965689e-05 9.539449e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 8.546204e-01 6.820198e-01 8.767842e-01 3.733885e-02 5.460512e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 5.861315e-01 5.671328e-01 9.274776e-01 1.301429e-01 1.238445e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 8.578183e-01 6.675208e-01 9.147350e-01 1.795776e-01 6.919616e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 0.09924890 0.62413644 0.19486543 0.76903013 0.43504305 0.81562726</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 0.88342493 0.38778401 0.11527269 0.57463850 0.54207740 0.02458395</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 0.47414275 0.77080744 0.43219570 0.54291846 0.94113838 0.60049509</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 0.50383606 0.31765200</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

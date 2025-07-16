@@ -72,6 +72,7 @@ sidak(p, n, "adaptive")
 
 ## Compare methods
 Here we plot the values from computing the Sidak correction using 
+
 * adaptive approach using either double precision or Taylor series depending on the value of p
 * High precision with Rmpfr
 * standard approach using double precision arithmetic 

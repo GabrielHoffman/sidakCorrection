@@ -58,7 +58,7 @@ implementations</h3>
 </h4>
             
             <h4 data-toc-skip class="date">Run on 2025-07-16
-15:46:36</h4>
+15:51:08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/GabrielHoffman/sidakCorrection/blob/HEAD/vignettes/sidakCorrection.Rmd" class="external-link"><code>vignettes/sidakCorrection.Rmd</code></a></small>
       <div class="d-none name"><code>sidakCorrection.Rmd</code></div>
@@ -111,10 +111,14 @@ implementations</h3>
 <div class="section level2">
 <h2 id="compare-methods">Compare methods<a class="anchor" aria-label="anchor" href="#compare-methods"></a>
 </h2>
-<p>Here we plot the values from computing the Sidak correction using *
-adaptive approach using either double precision or Taylor series
-depending on the value of p * High precision with Rmpfr * standard
-approach using double precision arithmetic * Taylor series</p>
+<p>Here we plot the values from computing the Sidak correction using</p>
+<ul>
+<li>adaptive approach using either double precision or Taylor series
+depending on the value of p</li>
+<li>High precision with Rmpfr</li>
+<li>standard approach using double precision arithmetic</li>
+<li>Taylor series</li>
+</ul>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span></span>
